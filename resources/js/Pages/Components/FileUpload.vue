@@ -78,7 +78,7 @@ const onFileChange = (event) => {
 
     const formData = new FormData()
     formData.append('file', file)
-    const url = ''
+    const url = 'https://dkpoc6i0q6.execute-api.us-east-1.amazonaws.com/dev/files'
     const config = {
         headers: {
             'Content-Type': 'text/csv'
