@@ -13,20 +13,44 @@
   Chart.register(...registerables);
 
   export default defineComponent({
-    name: 'PositionSalary',
+    name: 'PositionSalary1',
     components: { DoughnutChart },
     setup() {
-      const testData = {
-        labels: ['Paris', 'Nîmes', 'Toulon', 'Perpignan', 'Autre'],
-        datasets: [
-          {
-            data: [30, 40, 60, 70, 5],
-            backgroundColor: ['#77CEFF', '#0079AF', '#123E6B', '#97B0C4', '#A5C8ED'],
-          },
-        ],
-      };
+        const chartData = ref({});
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://dkpoc6i0q6.execute-api.us-east-1.amazonaws.com/dev/position');
+                const data = JSON.parse(response.data.data);
+                const labels = data.map(item => item.position_type);
+                const values = data.map(item => item.average_count);
+                chartData.value = {
+                    labels: labels,
+                    datasets: [
+                        {
+                            data: values,
+                            backgroundColor: ['#77CEFF', '#0079AF', '#123E6B']
+                        },
+                    ],
+                }
 
-      return { testData };
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        onMounted(() => {
+            fetchData();
+        });
+
+        const options = {
+            plugins: {
+                legend: {
+                    display: true
+                }
+            }
+        }
+
+        return { chartData, options };
     },
-  });
+});
   </script>
