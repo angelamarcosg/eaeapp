@@ -14,3 +14,4 @@ import RemoteRatio from './RemoteRatio.vue';
 import YearSalary from './YearSalary.vue';
 
 </script>
+ 
