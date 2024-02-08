@@ -4,6 +4,7 @@
         <PositionSalary />
         <RemoteRatio />
         <YearSalary />
+        <PositionSalary1 />
     </div>
 </template>
 
