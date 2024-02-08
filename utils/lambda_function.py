@@ -16,11 +16,9 @@ def lambda_handler(event, context):
 
     # Execute MySQL Query
     query = """
-    SELECT job_title, ROUND(AVG(salary_in_usd))::INTEGER as average_salary
+    SELECT work_year, ROUND(AVG(salary_in_usd))::INTEGER as average_salary
     FROM salaries
-    GROUP BY job_title
-    ORDER BY average_salary DESC
-    LIMIT 10
+    GROUP BY work_year
     """
     cursor.execute(query)
 
