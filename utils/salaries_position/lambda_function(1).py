@@ -5,9 +5,9 @@ def lambda_handler(event, context):
 
     # Setup MySQL Connection
     conn = pg8000.connect(
-        host= '',
+        host= 'database-1.clm4oqc2ul4q.us-east-1.rds.amazonaws.com',
         user= 'postgres',
-        password= 'secret01',
+        password= '12345678',
         database= 'postgres',
         ssl_context=True
     )
