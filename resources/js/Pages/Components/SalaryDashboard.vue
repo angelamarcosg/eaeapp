@@ -9,7 +9,7 @@
 
 <script setup>
 import CountrySalary from './CountrySalary.vue';
-import PositionSalary from './PositionSalary.vue';
+import PositionSalary from './PositionSalary1.vue';
 import RemoteRatio from './RemoteRatio.vue';
 import YearSalary from './YearSalary.vue';
 
