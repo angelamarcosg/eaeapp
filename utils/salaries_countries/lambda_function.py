@@ -5,10 +5,11 @@ def lambda_handler(event, context):
 
     # Setup MySQL Connection
     conn = pymysql.connect(
-        host= '',
-        user= '',
-        password= '',
-        database= 'ebdb',
+        host= 'database-1.clm4oqc2ul4q.us-east-1.rds.amazonaws.com',
+        user= 'postgres',
+        password= '12345678',
+        database= 'postgres',
+        ssl_context=True
     )
 
     cursor = conn.cursor()
